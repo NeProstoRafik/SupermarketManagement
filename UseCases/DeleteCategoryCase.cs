@@ -1,5 +1,4 @@
-﻿using CoreBusiness;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +7,17 @@ using UseCases.Interfaces;
 
 namespace UseCases
 {
-    public class GetCategoryByIdCase : IGetCategoryByIdCase
+    public class DeleteCategoryCase : IDeleteCategoryCase
     {
         private readonly ICategoryRepository categoryRepository;
 
-        public GetCategoryByIdCase(ICategoryRepository categoryRepository)
+        public DeleteCategoryCase(ICategoryRepository categoryRepository)
         {
             this.categoryRepository = categoryRepository;
         }
-        public Category Execute(int id)
+        public void Delete(int id)
         {
-            return categoryRepository.GetCategoriesById(id);
+            categoryRepository.DeleteCategory(id);
         }
     }
 }

@@ -9,10 +9,11 @@ namespace UseCases.Interfaces
 {
 	public interface ICategoryRepository
 	{
-		public IEnumerable<Category> GetCatigories();
+		public IEnumerable<Category> GetCategories();
 		void AddCategory(Category category);
 		void UpdateCategory(Category category);
-		Category GetCatigoriesById(int id);
+		Category GetCategoriesById(int id);
+		void DeleteCategory(int id);
 
     }
 }

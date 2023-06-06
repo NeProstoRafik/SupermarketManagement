@@ -24,6 +24,7 @@ namespace SupermarketManagement
             builder.Services.AddTransient<IAddCategoryCase, AddCategoryCase>();
             builder.Services.AddTransient<IEditCategoryCase, EditCategoryCase>();
             builder.Services.AddTransient<IGetCategoryByIdCase, GetCategoryByIdCase>();
+            builder.Services.AddTransient<IDeleteCategoryCase, DeleteCategoryCase>();
             var app = builder.Build();
 
 			// Configure the HTTP request pipeline.

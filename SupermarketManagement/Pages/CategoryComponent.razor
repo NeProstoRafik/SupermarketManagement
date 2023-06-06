@@ -1,11 +1,12 @@
 ﻿@page "/categories"
 
 @inject NavigationManager NavigationManager
+
+@inject UseCases.Interfaces.IViewCategoriesUseCase ViewCategoryUseCase
+@inject UseCases.Interfaces.IDeleteCategoryCase DeleteCategoryUseCase
 @*@attribute [Authorize(Policy = "AdminOnly")]
 
-
-@inject UseCases.IViewCategoriesUseCase ViewCategoryUseCase
-@inject UseCases.IDeleteCategoryUseCase DeleteCategoryUseCase*@
+*@
 
 <h3>Manage Categories</h3>
 <br />

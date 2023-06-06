@@ -20,19 +20,31 @@ namespace Plugins.DataStore
         public void AddCategory(Category category)
         {
             if (_categories.Any(x => x.Name.Equals(category.Name, StringComparison.OrdinalIgnoreCase))) return;
-            var maxId = _categories.Max(x => x.CategoryId);
+            if (_categories.Count>0 && _categories != null)
+            {
+                var maxId = _categories.Max(x => x.CategoryId);
 
-            category.CategoryId = maxId + 1;
+                category.CategoryId = maxId + 1;
+            }
+            else
+            {
+                category.CategoryId = 1;
+            }         
 
             _categories.Add(category);
         }
 
-        public IEnumerable<Category> GetCatigories()
+        public void DeleteCategory(int id)
+        {
+            _categories?.Remove(GetCategoriesById(id));
+        }
+
+        public IEnumerable<Category> GetCategories()
         {
             return _categories;
         }
 
-        public Category GetCatigoriesById(int id)
+        public Category GetCategoriesById(int id)
         {
             return _categories?.FirstOrDefault(x => x.CategoryId == id);
         }
