@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseCases", "UseCases\UseCas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreBusiness", "CoreBusiness\CoreBusiness.csproj", "{7B1FFAFE-1855-4D15-83B6-A7C33AB8D8BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins.DataStore", "Plugins.DataStore\Plugins.DataStore.csproj", "{707E1B18-5F50-4AE2-AB24-7E28B68BC22C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugins.DataStore", "Plugins.DataStore\Plugins.DataStore.csproj", "{707E1B18-5F50-4AE2-AB24-7E28B68BC22C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

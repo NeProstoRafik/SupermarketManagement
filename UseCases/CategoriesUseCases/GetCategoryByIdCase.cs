@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UseCases.Interfaces;
+using UseCases.PlaginInterfaces;
 
-namespace UseCases
+namespace UseCases.CategoriesUseCases
 {
     public class GetCategoryByIdCase : IGetCategoryByIdCase
     {

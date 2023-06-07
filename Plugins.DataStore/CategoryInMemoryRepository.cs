@@ -1,5 +1,5 @@
 ﻿using CoreBusiness;
-using UseCases.Interfaces;
+using UseCases.PlaginInterfaces;
 
 namespace Plugins.DataStore
 {
