@@ -14,5 +14,6 @@ namespace UseCases.PlaginInterfaces
         void UpdateProduct(Product product);
         Product GetProductById(int id);
         void DeleteProduct(int productId);
+       IEnumerable<Product> GetProductByCategoryId(int id);
     }
 }

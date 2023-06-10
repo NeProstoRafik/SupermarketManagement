@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 using UseCases.Interfaces;
 using UseCases.PlaginInterfaces;
 
-namespace UseCases
+namespace UseCases.ProductUseCases
 {
-    public class AddProductCase : IAddProductCase
+    public class GetProductByIdCase : IGetProductByIdCase
     {
         private readonly IProductRepository productRepository;
 
-        public AddProductCase(IProductRepository productRepository)
+        public GetProductByIdCase(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
         }
-        public void Execute(Product product)
+        public Product Execute(int id)
         {
-            productRepository.AddProduct(product);
+            return productRepository.GetProductById(id);
         }
     }
 }

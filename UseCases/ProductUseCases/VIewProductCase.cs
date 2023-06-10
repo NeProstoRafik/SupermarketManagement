@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UseCases.Interfaces;
 using UseCases.PlaginInterfaces;
 
-namespace UseCases
+namespace UseCases.ProductUseCases
 {
     public class ViewProductCase : IViewProductCase
     {

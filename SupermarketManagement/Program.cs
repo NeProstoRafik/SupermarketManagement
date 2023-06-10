@@ -1,9 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using Plugins.DataStore;
+using Plugins.SQL;
 using SupermarketManagement.Data;
 using UseCases;
 using UseCases.CategoriesUseCases;
 using UseCases.Interfaces;
 using UseCases.PlaginInterfaces;
+using UseCases.ProductUseCases;
 
 namespace SupermarketManagement
 {
@@ -18,8 +21,8 @@ namespace SupermarketManagement
             builder.Services.AddServerSideBlazor();
             builder.Services.AddSingleton<WeatherForecastService>();
             builder.Services.AddScoped<IProductRepository, ProductInMemoryRepository>();
-
             builder.Services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+            builder.Services.AddScoped<ITransactionRepository, TransactionInMemoryRepository>();
 
 
             builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
@@ -31,7 +34,24 @@ namespace SupermarketManagement
             builder.Services.AddTransient<IAddProductCase, AddProductCase>();
             builder.Services.AddTransient<IEditProductCase, EditProductCase>();
             builder.Services.AddTransient<IGetProductByIdCase, GetProductByIdCase>();
+            builder.Services.AddTransient<IDeleteProductCase, DeleteProductCase>();
+            builder.Services.AddTransient<IViewProductByCategoryId, ViewProductByCategoryId>();
+            builder.Services.AddTransient<ISellProductCase, SellProductCase>();
+            builder.Services.AddTransient<IRecordTransactionUseCase, RecordTransactionUseCase>();
+            builder.Services.AddTransient<IGetTodayTransactionUseCase, GetTodayTransactionUseCase>();
+            builder.Services.AddTransient<IGetTransactionUseCase, GetTransactionUseCase>();
+
             var app = builder.Build();
+
+           builder.Services.AddDbContext<Context>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            //var connectionStrings = builder.Configuration.GetConnectionString("DefaultConnection");
+            //builder.Services.AddDbContext<Context>(options =>
+            //options.UseSqlServer(connectionStrings));
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -51,6 +71,8 @@ namespace SupermarketManagement
             app.MapFallbackToPage("/_Host");
 
             app.Run();
+
+            
         }
     }
 }
