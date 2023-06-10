@@ -41,12 +41,14 @@ namespace SupermarketManagement
             builder.Services.AddTransient<IGetTodayTransactionUseCase, GetTodayTransactionUseCase>();
             builder.Services.AddTransient<IGetTransactionUseCase, GetTransactionUseCase>();
 
+            builder.Services.AddDbContext<Context>(options =>
+             {
+                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+             });
+
             var app = builder.Build();
 
-           builder.Services.AddDbContext<Context>(options =>
-            {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            });
+          
 
             //var connectionStrings = builder.Configuration.GetConnectionString("DefaultConnection");
             //builder.Services.AddDbContext<Context>(options =>

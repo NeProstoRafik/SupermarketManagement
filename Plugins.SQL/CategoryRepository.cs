@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Plugins.SQL
 {
-    internal class CategoryRepository
+    public class CategoryRepository
     {
-        //6.3
+   
     }
 }
